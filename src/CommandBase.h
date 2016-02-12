@@ -5,6 +5,7 @@
 #include "Commands/Command.h"
 #include "Subsystems/Drive.h"
 #include "Subsystems/GyroSubsystem.h"
+#include "Subsystems/Arm.h"
 
 #include "OI.h"
 #include "WPILib.h"

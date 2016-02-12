@@ -50,6 +50,26 @@ void Arm::SetStart()
 	ArmOff();
 }
 
+void Arm::SetAngle(double angle)
+{
+	ArmOn();
+	if(this->GetAngle() <= angle)
+	{
+		while(this->GetAngle() <= angle)
+		{
+			this->MoveArm(0.5);
+		}
+	}
+
+	else if(this->GetAngle() >= angle)
+	{
+		while(this->GetAngle() >= angle)
+				{
+					this->MoveArm(-0.5);
+				}
+	}
+}
+
 double Arm::GetAngle()
 {
 	return encoder->GetDistance();

@@ -33,6 +33,7 @@ public:
 	void ArmOff();
 	void MoveArm(float speed);
 	void SetStart();
+	void SetAngle(double angle);
 	void StopArm();
 	void InitDefaultCommand();
 	double GetAngle();

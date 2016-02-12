@@ -1,21 +1,24 @@
 #include "WPILib.h"
-#include "NetworkTablesInterface.h"
+#//include "NetworkTablesInterface.h"
 #include "Commands/Command.h"
-#include "Commands/AutonomousProgram.h"
+#include "Commands/ArcadeDrive.h"
+#//include "Commands/AutonomousProgram.h"
 #include "CommandBase.h"
-#include <stdint.h>
+//#include <stdint.h>
 
 class Robot: public IterativeRobot
 {
 private:
-	AutonomousProgram *autonomousCommand;
+	//AutonomousProgram *autonomousCommand;
 	LiveWindow *lw;
+	Command* drive;
 
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = new AutonomousProgram();
+		//autonomousCommand = new AutonomousProgram();
 		lw = LiveWindow::GetInstance();
+		drive = new ArcadeDrive();
 	}
 	
 	void DisabledPeriodic()
@@ -40,10 +43,11 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != NULL)
-			autonomousCommand->Cancel();
-		CommandBase::drive->ResetEncoders();
-		CommandBase::gyro->ResetGyro();
+//		if (autonomousCommand != NULL)
+//			autonomousCommand->Cancel();
+//		CommandBase::drive->ResetEncoders();
+//		CommandBase::gyro->ResetGyro();
+		drive->Start();
 	}
 
 	void TeleopPeriodic()
